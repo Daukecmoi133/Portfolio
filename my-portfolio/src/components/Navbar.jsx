@@ -16,20 +16,21 @@ export default function Navbar({ onOpenCv }) {
   return (
     <header className="no-print fixed top-3 right-0 left-0 z-40 px-3 sm:top-4 sm:px-6">
       <div className="mx-auto max-w-[1160px] rounded-xl border border-white/10 bg-[#0B0F17]/80 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.85)] backdrop-blur-xl">
-        <div className="flex items-center justify-between px-3.5 py-2 sm:px-5">
+        <div className="flex flex-nowrap items-center justify-between gap-2 px-3 py-1.5 sm:px-5 sm:py-2">
           {/* Brand */}
           <a
             href="#top"
-            className="group flex min-h-[44px] items-center gap-3 rounded-md pr-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+            className="group flex min-h-[42px] min-w-0 shrink-0 items-center gap-2.5 rounded-md pr-1 sm:min-h-[44px] sm:gap-3 sm:pr-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
           >
-            <span className="relative flex h-8 w-8 items-center justify-center rounded-md border border-cyan-400/35 bg-[#101622] font-mono text-xs font-semibold tracking-wider text-cyan-300 transition-colors group-hover:border-cyan-400/70">
+            <span className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-cyan-400/35 bg-[#101622] font-mono text-xs font-semibold tracking-wider text-cyan-300 transition-colors group-hover:border-cyan-400/70">
               KD
             </span>
             <span className="flex flex-col text-left">
-              <span className="font-display text-sm font-semibold tracking-tight text-white">
-                Trần Khánh Duy
+              <span className="whitespace-nowrap font-display text-sm font-semibold tracking-tight text-white">
+                <span className="sm:hidden">Khánh Duy</span>
+                <span className="hidden sm:inline">Trần Khánh Duy</span>
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400">
+              <span className="hidden whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:block">
                 DS &amp; AI · DUT
               </span>
             </span>
@@ -41,7 +42,7 @@ export default function Navbar({ onOpenCv }) {
               <a
                 key={item.href}
                 href={item.href}
-                className="flex min-h-[44px] items-center rounded-md px-3 font-mono text-xs uppercase tracking-[0.12em] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                className="flex min-h-[44px] items-center whitespace-nowrap rounded-md px-3 font-mono text-xs uppercase tracking-[0.12em] text-slate-400 transition-colors hover:bg-white/[0.04] hover:text-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
               >
                 {item.label}
               </a>
@@ -49,16 +50,18 @@ export default function Navbar({ onOpenCv }) {
           </nav>
 
           {/* Prominent Download CV Button + Mobile Toggle */}
-          <div className="flex items-center gap-2">
+          <div className="flex shrink-0 items-center gap-2">
             <motion.button
               type="button"
               onClick={onOpenCv}
               whileHover={{ y: -1 }}
               whileTap={{ scale: 0.97 }}
-              className="neon-cta-btn inline-flex min-h-[42px] cursor-pointer items-center gap-2 rounded-lg px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-cyan-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+              aria-label="Download CV"
+              className="neon-cta-btn inline-flex min-h-[40px] cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-lg px-3 py-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-cyan-100 sm:min-h-[42px] sm:gap-2 sm:px-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
             >
-              <Download className="h-3.5 w-3.5 text-cyan-300" aria-hidden="true" />
-              <span>Download CV</span>
+              <Download className="h-3.5 w-3.5 shrink-0 text-cyan-300" aria-hidden="true" />
+              <span className="sm:hidden">CV</span>
+              <span className="hidden sm:inline">Download CV</span>
             </motion.button>
 
             <button
@@ -67,7 +70,7 @@ export default function Navbar({ onOpenCv }) {
               aria-controls="mobile-nav"
               aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
               onClick={() => setMobileOpen((prev) => !prev)}
-              className="flex min-h-[42px] min-w-[42px] items-center justify-center rounded-lg border border-white/12 bg-[#101622] text-slate-200 transition-colors hover:border-cyan-400/40 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 md:hidden"
+              className="flex min-h-[40px] min-w-[40px] shrink-0 items-center justify-center rounded-lg border border-white/12 bg-[#101622] text-slate-200 transition-colors hover:border-cyan-400/40 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400 md:hidden"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>

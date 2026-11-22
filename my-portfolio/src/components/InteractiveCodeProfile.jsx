@@ -23,24 +23,28 @@ export default function InteractiveCodeProfile() {
   };
 
   return (
-    <div className="framed-shell flex h-full flex-col">
-      <div className="framed-shell-inner flex flex-col overflow-hidden">
+    <div className="framed-shell flex h-full w-full max-w-full flex-col overflow-hidden">
+      <div className="framed-shell-inner flex min-w-0 max-w-full flex-col overflow-hidden">
         {/* Top Interactive 3D Particle Globe Stage */}
-        <div className="border-b border-white/10 bg-[#07090E]/70">
-          <div className="flex items-center justify-between border-b border-white/8 px-4 py-2.5">
-            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-slate-400">
-              <Globe className="h-3.5 w-3.5 text-cyan-400" aria-hidden="true" />
-              <span>NODE TELEMETRY // 3D SPHERE</span>
+        <div className="w-full max-w-full border-b border-white/10 bg-[#07090E]/70">
+          <div className="flex items-center justify-between gap-2 border-b border-white/8 px-3.5 py-2 sm:px-4 sm:py-2.5">
+            <div className="flex min-w-0 items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400 sm:text-[11px] sm:tracking-[0.16em]">
+              <Globe className="h-3.5 w-3.5 shrink-0 text-cyan-400" aria-hidden="true" />
+              <span className="truncate">NODE TELEMETRY // 3D SPHERE</span>
             </div>
-            <span className="font-mono text-[10px] text-cyan-300/80">INTERACTIVE</span>
+            <span className="shrink-0 font-mono text-[10px] text-cyan-300/80">INTERACTIVE</span>
           </div>
           <ParticleGlobe />
         </div>
 
         {/* Interactive Code Profile Tabs */}
-        <div className="flex flex-1 flex-col bg-[#0B0F17]">
-          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 bg-[#0E1420] px-3 py-2">
-            <div className="flex items-center gap-1" role="tablist" aria-label="Profile source files">
+        <div className="flex min-w-0 max-w-full flex-1 flex-col bg-[#0B0F17]">
+          <div className="flex items-center justify-between gap-2 border-b border-white/10 bg-[#0E1420] px-2.5 py-2 sm:px-3">
+            <div
+              className="flex min-w-0 items-center gap-1 overflow-x-auto"
+              role="tablist"
+              aria-label="Profile source files"
+            >
               {CODE_PROFILE_TABS.map((tab) => {
                 const isActive = tab.id === activeTabId;
                 return (
@@ -53,7 +57,7 @@ export default function InteractiveCodeProfile() {
                       setActiveTabId(tab.id);
                       setCopied(false);
                     }}
-                    className={`relative cursor-pointer rounded-md px-2.5 py-1.5 font-mono text-[11px] transition-colors focus-visible:outline-2 focus-visible:outline-cyan-400 ${
+                    className={`relative shrink-0 cursor-pointer whitespace-nowrap rounded-md px-2 py-1.5 font-mono text-[11px] transition-colors sm:px-2.5 focus-visible:outline-2 focus-visible:outline-cyan-400 ${
                       isActive ? 'text-cyan-200' : 'text-slate-400 hover:text-slate-200'
                     }`}
                   >
@@ -75,7 +79,7 @@ export default function InteractiveCodeProfile() {
               whileTap={{ scale: 0.94 }}
               onClick={handleCopy}
               aria-label={`Copy ${activeTab.label}`}
-              className="inline-flex min-h-[32px] cursor-pointer items-center gap-1.5 rounded-md border border-white/10 bg-[#101622] px-2.5 py-1 font-mono text-[11px] text-slate-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-200 focus-visible:outline-2 focus-visible:outline-cyan-400"
+              className="inline-flex min-h-[32px] shrink-0 cursor-pointer items-center gap-1.5 whitespace-nowrap rounded-md border border-white/10 bg-[#101622] px-2.5 py-1 font-mono text-[11px] text-slate-300 transition-colors hover:border-cyan-400/40 hover:text-cyan-200 focus-visible:outline-2 focus-visible:outline-cyan-400"
             >
               {copied ? (
                 <>
@@ -92,7 +96,7 @@ export default function InteractiveCodeProfile() {
           </div>
 
           {/* Code Viewport */}
-          <div className="relative flex-1 overflow-x-auto p-4">
+          <div className="relative min-w-0 max-w-full flex-1 overflow-x-auto p-3.5 sm:p-4">
             <AnimatePresence mode="wait">
               <motion.pre
                 key={activeTab.id}
@@ -100,7 +104,7 @@ export default function InteractiveCodeProfile() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -4 }}
                 transition={{ duration: 0.18 }}
-                className="font-mono text-[12px] leading-relaxed text-slate-300"
+                className="w-full max-w-full font-mono text-[11px] leading-relaxed text-slate-300 sm:text-[12px]"
               >
                 <code>{activeTab.code}</code>
               </motion.pre>

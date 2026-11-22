@@ -161,10 +161,10 @@ export default function ParticleGlobe() {
     <div
       onPointerMove={handlePointerMove}
       onPointerLeave={handlePointerLeave}
-      className="relative h-[220px] w-full cursor-crosshair overflow-hidden sm:h-[240px]"
+      className="relative h-[180px] w-full max-w-full cursor-crosshair overflow-hidden sm:h-[230px]"
     >
-      <canvas ref={canvasRef} aria-hidden="true" className="h-full w-full" />
-      <div className="pointer-events-none absolute right-3 bottom-2.5 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.14em] text-slate-400">
+      <canvas ref={canvasRef} aria-hidden="true" className="block h-full w-full max-w-full" />
+      <div className="pointer-events-none absolute right-3 bottom-2 flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.12em] text-slate-400 sm:bottom-2.5 sm:gap-2 sm:tracking-[0.14em]">
         <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
         <span>DA NANG · 16.05°N 108.20°E</span>
       </div>

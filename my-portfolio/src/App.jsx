@@ -87,7 +87,7 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div id="top" className="tech-grid-bg min-h-screen bg-[#07090E] text-[#E6EDF3]">
+      <div id="top" className="tech-grid-bg min-h-screen overflow-x-clip bg-[#07090E] text-[#E6EDF3]">
         {/* Subtle top atmospheric cyan glow */}
         <div
           aria-hidden="true"
@@ -107,32 +107,32 @@ export default function App() {
         {/* Master Framed Shell */}
         <main
           id="main-content"
-          className="no-print relative mx-auto max-w-[1160px] border-x border-white/[0.07] px-4 pt-24 pb-16 sm:px-6 sm:pt-28"
+          className="no-print relative mx-auto max-w-[1160px] border-x border-white/[0.07] px-3 pt-[74px] pb-14 sm:px-6 sm:pt-28 sm:pb-16"
         >
           {/* ================================================================
               01 // HERO SECTION (SPLIT LAYOUT)
               ================================================================ */}
           <section
             aria-label="Introduction"
-            className="grid gap-6 border-b border-white/10 pb-14 lg:grid-cols-12 lg:items-stretch lg:pb-16"
+            className="grid gap-5 border-b border-white/10 pb-10 sm:gap-6 sm:pb-14 lg:grid-cols-12 lg:items-stretch lg:pb-16"
           >
             {/* Left Positioning & Telemetry (7 cols) */}
             <motion.div
               variants={staggerContainer}
               initial="hidden"
               animate="show"
-              className="framed-shell lg:col-span-7"
+              className="framed-shell min-w-0 max-w-full lg:col-span-7"
             >
-              <div className="framed-shell-inner flex flex-col justify-between p-6 sm:p-8">
+              <div className="framed-shell-inner flex flex-col justify-between p-4 sm:p-8">
                 <div>
                   <motion.div
                     variants={staggerItem}
-                    className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4"
+                    className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3 sm:gap-3 sm:pb-4"
                   >
-                    <span className="font-mono text-[11px] uppercase tracking-[0.18em] text-slate-400">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-slate-400 sm:text-[11px] sm:tracking-[0.18em]">
                       01 // PROFILE · {PROFILE.location}
                     </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-cyan-200">
+                    <span className="inline-flex items-center gap-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-cyan-200 sm:gap-2 sm:px-3 sm:py-1 sm:tracking-[0.14em]">
                       <span
                         className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#22d3ee]"
                         aria-hidden="true"
@@ -143,21 +143,21 @@ export default function App() {
 
                   <motion.h1
                     variants={staggerItem}
-                    className="mt-6 font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-[56px] lg:leading-[1.04]"
+                    className="mt-4 font-display text-3xl font-bold tracking-tight text-white sm:mt-6 sm:text-5xl lg:text-[56px] lg:leading-[1.04]"
                   >
                     {PROFILE.heroHeadline}
                   </motion.h1>
 
                   <motion.p
                     variants={staggerItem}
-                    className="mt-3 font-mono text-sm font-medium tracking-tight text-cyan-300 sm:text-base"
+                    className="mt-2 font-mono text-xs font-medium tracking-tight text-cyan-300 sm:mt-3 sm:text-base"
                   >
                     {PROFILE.heroRole}
                   </motion.p>
 
                   <motion.p
                     variants={staggerItem}
-                    className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300"
+                    className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300 sm:mt-5 sm:text-base"
                   >
                     {PROFILE.heroSummary}
                   </motion.p>
@@ -165,13 +165,13 @@ export default function App() {
                   {/* Hero CTAs */}
                   <motion.div
                     variants={staggerItem}
-                    className="mt-7 flex flex-wrap items-center gap-3"
+                    className="mt-5 flex flex-wrap items-center gap-2.5 sm:mt-7 sm:gap-3"
                   >
                     <motion.a
                       whileHover={{ y: -1 }}
                       whileTap={{ scale: 0.97 }}
                       href="#projects"
-                      className="inline-flex min-h-[44px] items-center gap-2 rounded-lg bg-cyan-400 px-5 py-2.5 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-[#07090E] transition-colors hover:bg-cyan-300 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                      className="inline-flex min-h-[42px] items-center gap-2 whitespace-nowrap rounded-lg bg-cyan-400 px-4 py-2 font-mono text-xs font-semibold uppercase tracking-[0.12em] text-[#07090E] transition-colors hover:bg-cyan-300 sm:min-h-[44px] sm:px-5 sm:py-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                     >
                       <span>Explore Projects</span>
                       <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -182,7 +182,7 @@ export default function App() {
                       whileHover={{ y: -1 }}
                       whileTap={{ scale: 0.97 }}
                       onClick={() => setCvOpen(true)}
-                      className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-white/15 bg-[#101622] px-5 py-2.5 font-mono text-xs font-medium uppercase tracking-[0.12em] text-slate-100 transition-colors hover:border-cyan-400/50 hover:text-cyan-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
+                      className="inline-flex min-h-[42px] cursor-pointer items-center gap-2 whitespace-nowrap rounded-lg border border-white/15 bg-[#101622] px-4 py-2 font-mono text-xs font-medium uppercase tracking-[0.12em] text-slate-100 transition-colors hover:border-cyan-400/50 hover:text-cyan-200 sm:min-h-[44px] sm:px-5 sm:py-2.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-400"
                     >
                       <Download className="h-3.5 w-3.5 text-cyan-300" aria-hidden="true" />
                       <span>Download CV</span>
@@ -193,20 +193,22 @@ export default function App() {
                 {/* Verified Telemetry Strip */}
                 <motion.div
                   variants={staggerItem}
-                  className="mt-8 grid grid-cols-2 gap-2.5 border-t border-white/10 pt-6 sm:grid-cols-4"
+                  className="mt-5 grid grid-cols-2 gap-2 border-t border-white/10 pt-4 sm:mt-8 sm:grid-cols-4 sm:gap-2.5 sm:pt-6"
                 >
                   {TELEMETRY_METRICS.map((item) => (
                     <div
                       key={item.label}
-                      className="rounded-lg border border-white/8 bg-[#101622]/70 px-3 py-2.5"
+                      className="rounded-lg border border-white/8 bg-[#101622]/70 px-2.5 py-2 sm:px-3 sm:py-2.5"
                     >
-                      <p className="font-mono text-[10px] uppercase tracking-[0.12em] text-slate-400">
+                      <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-slate-400 sm:tracking-[0.12em]">
                         {item.label}
                       </p>
-                      <p className="mt-1 font-display text-base font-bold text-white">
+                      <p className="mt-0.5 font-display text-sm font-bold text-white sm:mt-1 sm:text-base">
                         {item.value}
                       </p>
-                      <p className="mt-0.5 font-mono text-[10px] text-slate-500">{item.meta}</p>
+                      <p className="mt-0.5 truncate font-mono text-[10px] text-slate-500">
+                        {item.meta}
+                      </p>
                     </div>
                   ))}
                 </motion.div>
@@ -218,7 +220,7 @@ export default function App() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className="lg:col-span-5"
+              className="min-w-0 max-w-full lg:col-span-5"
             >
               <InteractiveCodeProfile />
             </motion.div>
