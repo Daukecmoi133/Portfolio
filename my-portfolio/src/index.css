@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    --bg-base: #07090e;
+    --bg-surface: #0b0f17;
+    --bg-elevated: #101622;
+    --neon-cyan: #22d3ee;
+    --neon-cyan-soft: rgba(34, 211, 238, 0.14);
+    --border-hairline: rgba(255, 255, 255, 0.08);
+    --border-bright: rgba(255, 255, 255, 0.16);
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-base);
+    color: #e6edf3;
+    scroll-padding-top: 6rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Subtle dot-grid technical backdrop */
+.tech-grid-bg {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Framed Tech Dark Border-Gradient Shell */
+.framed-shell {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.04) 45%,
+    rgba(34, 211, 238, 0.16) 100%
+  );
+  padding: 1px;
+  border-radius: 10px;
+}
+
+.framed-shell-inner {
+  background-color: rgba(11, 15, 23, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 9px;
+  height: 100%;
+  width: 100%;
+}
+
+/* Beam Glow State Card (cursor-tracked radial highlight + top beam sweep) */
+.beam-card {
+  position: relative;
+  border-radius: 10px;
+  background: rgba(11, 15, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  transition: border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.beam-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    420px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(34, 211, 238, 0.13),
+    transparent 65%
+  );
+  transition: opacity 240ms ease;
+  z-index: 0;
+}
+
+.beam-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -40%;
+  width: 40%;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.9), transparent);
+  opacity: 0;
+  transition: opacity 220ms ease;
+  z-index: 2;
+}
+
+.beam-card:hover {
+  border-color: rgba(34, 211, 238, 0.34);
+  box-shadow: 0 0 36px -14px rgba(34, 211, 238, 0.28);
+}
+
+.beam-card:hover::before {
+  opacity: 1;
+}
+
+.beam-card:hover::after {
+  opacity: 1;
+  animation: beamSweep 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes beamSweep {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 110%;
+  }
+}
+
+/* Prominent Neon-Bordered CV Button */
+.neon-cta-btn {
+  position: relative;
+  border: 1px solid rgba(34, 211, 238, 0.55);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.16) 0%, rgba(34, 211, 238, 0.06) 100%);
+  box-shadow: 0 0 22px -6px rgba(34, 211, 238, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+}
+
+.neon-cta-btn:hover {
+  border-color: rgba(34, 211, 238, 0.9);
+  background: linear-gradient(180deg, rgba(34, 211, 238, 0.24) 0%, rgba(34, 211, 238, 0.1) 100%);
+  box-shadow: 0 0 28px -4px rgba(34, 211, 238, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Line-led Interactive Row */
+.row-interactive {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: rgba(16, 22, 34, 0.52);
+  border-radius: 6px;
+  transition: background-color 180ms ease, border-color 180ms ease;
+}
+
+.row-interactive::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  border-radius: 2px;
+  background-color: transparent;
+  transition: background-color 180ms ease;
+}
+
+.row-interactive:hover {
+  background-color: rgba(34, 211, 238, 0.05);
+  border-color: rgba(34, 211, 238, 0.28);
+}
+
+.row-interactive:hover::before {
+  background-color: #22d3ee;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beam-card:hover::after {
+    animation: none !important;
+  }
+  .beam-card,
+  .neon-cta-btn,
+  .row-interactive {
+    transition: none !important;
+  }
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

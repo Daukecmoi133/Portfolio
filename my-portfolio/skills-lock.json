@@ -1,0 +1,61 @@
+{
+  "version": 2,
+  "skills": {
+    "beam-glow-states": {
+      "source": "MengTo/Skills",
+      "commit": "821d22aa0d05881b22388daa4d8ef9ee17d00242",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/beam-glow-states/SKILL.md",
+      "computedHash": "196b4194533c2f4fab530796d69a86a9518218caa609fdce5750ae0d60115110"
+    },
+    "blue-laser-clean-glass-layout": {
+      "source": "MengTo/Skills",
+      "commit": "821d22aa0d05881b22388daa4d8ef9ee17d00242",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/blue-laser-clean-glass-layout/SKILL.md",
+      "computedHash": "f4e7c8e1f34a7127daf21560244a671286b5b25a7063b013db27d3678d9ba941"
+    },
+    "bright-green-tech-system-webgl": {
+      "source": "MengTo/Skills",
+      "commit": "821d22aa0d05881b22388daa4d8ef9ee17d00242",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/bright-green-tech-system-webgl/SKILL.md",
+      "computedHash": "d0402e05dbc83c1ad6e197fc86e4502f97a3669d6b0d99e85842aaf7d94c6f57"
+    },
+    "choreograph": {
+      "source": "emilkowalski/skills",
+      "commit": "64eb3deb9a5fbfa041faf783e0bc3fd635872e9c",
+      "sourceType": "github",
+      "skillPath": "skills/choreograph/SKILL.md",
+      "computedHash": "a33a7cf57eacff502f833778eed62244fb5a890bb25124dacde73bcf8716218c"
+    },
+    "dither-laser-dark-mode": {
+      "source": "MengTo/Skills",
+      "commit": "821d22aa0d05881b22388daa4d8ef9ee17d00242",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/dither-laser-dark-mode/SKILL.md",
+      "computedHash": "91baaf7aaca7876f6871d6693928c215f2c3fa2527d2a2e04e3f0a7a6ccd47a8"
+    },
+    "dxe-hiring-manager-bar": {
+      "source": "kemiljk/skills",
+      "commit": "32a9154485a83ad0683b19a8aa49b18c127ed028",
+      "sourceType": "github",
+      "skillPath": "skills/dxe-hiring-manager-bar/SKILL.md",
+      "computedHash": "f14b75b6ad81838096f1163fb71c43f26310fb8aeb6e76da1c014357b6ea3ca6"
+    },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "commit": "e4bb5d960d87126ff3b3a8af1a104b7db67560ba",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "83485963700bcf11d5bf78118facb301676b69d918fee2e45a95e7f1a2840f6c"
+    },
+    "globe-particles": {
+      "source": "MengTo/Skills",
+      "commit": "821d22aa0d05881b22388daa4d8ef9ee17d00242",
+      "sourceType": "github",
+      "skillPath": "agent-skills/web-design/globe-particles/SKILL.md",
+      "computedHash": "ee0fa3131c1e7ca1afea82eec2dc6044e3f5b8185a918c6324e33ee102727be9"
+    }
+  }
+}
